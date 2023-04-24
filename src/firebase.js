@@ -1,5 +1,8 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import "firebase/compat/analytics";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
@@ -12,5 +15,7 @@ const firebaseConfig = {
   measurementId: "G-T5MNKRMK1W",
 };
 
-export const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+firebase.analytics().logEvent("screen_view");
 export const auth = getAuth();
